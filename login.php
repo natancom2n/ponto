@@ -1,12 +1,3 @@
-<?php
-    session_start();
-
-    //verificando se a sessão está logada:
-    if (!$_SESSION['usuario']){
-        header('Location: login.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,20 +9,28 @@
 <link rel="stylesheet" href="assets/css/style.css">
     <title>Portifolio PHP</title>
 </head>
-<body>
+<body class="login">
     <header class="cabecalho">
         <h1>Portifolio PHP</h1>
-        <h2>Indice Portifolio</h2>
+        <h2>Seja bem vindo!</h2>
     </header>
 
-    <!--- Modificação feita por causa do Login --->
-    <nav class="navegacao">
-
-    </nav>
 <!--- Modificação feita por causa do Login --->
     <main class="principal">
         <div class="conteudo">
-            <?php require_once('menu.php'); ?>
+            <h3>Identifiqui-se</h3>
+
+            <?php 
+                //informado dados errados, tudo que estiver entre if e endif só será apresentado
+                //se entrar no if 
+                if($_SESSION['erros']): ?>
+                <div class="erros">
+                    <?php foreach($_SESSION['erros'] as $erro): ?>
+
+                    <?php endforeach ?>
+                </div>    
+
+            <?php endif ?>
         </div>
     </main>
 
