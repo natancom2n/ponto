@@ -26,7 +26,8 @@
 
     <!--- Modificação feita por causa do Login --->
     <nav class="navegacao">
-
+        <span class="usuario">Usuário: <?= $_SESSION['usuario'] ?></span>
+        <a href="logout.php">Sair</a>
     </nav>
 <!--- Modificação feita por causa do Login --->
     <main class="principal">
