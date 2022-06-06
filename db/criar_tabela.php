@@ -12,6 +12,7 @@ $sql = "CREATE TABLE IF NOT EXISTS cadastro(
     conta_LW VARCHAR(100) NOT NULL,
     emails INT(100),
     crm INT(100),
+    /* Ativo será interi para a cor da linha 1 amarelo , 2 azul e etc*/
     ativo INT(2),
     obs VARCHAR(500)
 )";
