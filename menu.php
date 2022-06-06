@@ -58,6 +58,19 @@
                         <li><a href="exercicio.php?dir=error&file=tratamento_erro">Tratamento de Erros</a></li>
                     </ul>
                 </div>
+                <div class="modulo laranja">
+                    <h3>Banco de dados</h3>
+                    <ul>
+                        <li><a href="exercicio.php?dir=db&file=criar_banco">Criar Banco</a></li>
+                        <li><a href="exercicio.php?dir=db&file=criar_tabela">Criar Tabela</a></li>
+                        <li><a href="exercicio.php?dir=db&file=inserir_1">Inserir Registro #01</a></li>
+                        <li><a href="exercicio.php?dir=db&file=inserir_2">Inserir Registro #02</a></li>
+                        <li><a href="exercicio.php?dir=db&file=consultar">Consultar registros</a></li>
+                        <li><a href="exercicio.php?dir=db&file=excluir">Excluir Registros</a></li>
+                        <li><a href="exercicio.php?dir=db&file=excluir_2">Excluir Registros 2</a></li>
+
+                    </ul>
+                </div>
                 <div class="modulo verde">
                     <h3>Gerenciar Sessão</h3>
                     <ul>
@@ -65,4 +78,5 @@
                         <li><a href="exercicio.php?dir=sessao&file=gerenciar_sessao">Gerenciar Sessão</a></li>
                     </ul>
                 </div>
+ 
             </nav>
