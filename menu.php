@@ -75,6 +75,7 @@
                         <li><a href="exercicio.php?dir=db&file=consultar">Consultar registros</a></li>
                         <li><a href="exercicio.php?dir=db&file=excluir">Excluir Registros</a></li>
                         <li><a href="exercicio.php?dir=db&file=excluir_2">Excluir Registros 2</a></li>
+                        <li><a href="exercicio.php?dir=db&file=alterar">Alterar Registros</a></li>
 
                     </ul>
                 </div>

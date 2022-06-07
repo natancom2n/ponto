@@ -1,9 +1,27 @@
-<div class="title">Inserir Registro #02</div>
+<div class="title">Alterar Registros</div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
 <?php 
+require_once "conexao.php";
+$conexao = novaConexao();
+
+if($_GET['codigo']){
+    $sql = "SELECT * FROM cadastro WHERE id = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i" , $_GET['codigo']);
+
+
+
+    if ($stmt->execute()){
+        $resultado = $stmt->get_result();
+        if($resultado->num_rows > 0){
+            $dados = $resultado->fetch_assoc();    
+        }
+    }
+}
+
 if(count($_POST) > 0) {
     $dados = $_POST; 
 
@@ -60,12 +78,13 @@ if(count($_POST) > 0) {
     //}
     
     if(!count($erros)) {
-            require_once "conexao.php";
-            $sql = "INSERT INTO cadastro
-        (imobiliaria, conta_LW, emails, crm, ativo, obs)
-        VALUES (?, ?, ?, ?, ?, ?)";
 
-        $conexao = novaConexao();
+        //trocar insert pelo update
+        $sql = "UPDATE cadastro
+        SET imobiliaria = ?, conta_LW = ?, emails = ?, 
+        crm = ?, ativo = ?, obs = ?
+        WHERE id = ?";
+
         $stmt = $conexao->prepare($sql);
 
         //array dos paramentros pois são muitos 
@@ -93,6 +112,24 @@ if(count($_POST) > 0) {
         <?= "" // $erro ?>
     <!-- </div> -->
 <?php endforeach ?>
+
+<form action="/ponto/exercicio.php" method="get">
+    <input type="hidden" name="dir" value="db">
+    <input type="hidden" name="file" value="alterar">
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="text" name="codigo"
+                class="form-control"
+                value="<?= $_GET['codigo'] ?>"
+                placeholder="informe o código para consulta">
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-success mb-4">Consultar</button>
+        </div>
+    </div>
+
+
+</form>
 
 <form action="#" method="post">
     <div class="form-row">
